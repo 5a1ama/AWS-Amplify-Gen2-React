@@ -7,62 +7,28 @@ const client = generateClient<Schema>();
 
 function App() {
   const [products, setProducts] = useState<Array<Schema["Product"]["type"]>>([]);
+  const [lambda, setLambda] = useState("");
 
   useEffect(() => {
     client.models.Product.observeQuery().subscribe({
       next: (data) => setProducts([...data.items]),
     });
+
+    const lambdaFunction = async() =>{
+      const result = await client.queries.sayHello({name:"salama"});
+      console.log(result)
+      setLambda(result.data!);
+    }
+    lambdaFunction()
   }, []);
+
+
 
   // function createTodo() {
   //   client.models.Todo.create({ content: window.prompt("Todo content") });
   // }
 
   return (
-    // <Box display='flex' flexDirection='row'> 
-    //     <Card sx={{ maxWidth: 345, maxHeight: 345, marginRight: '40px' }}>
-    //     <CardMedia
-    //       sx={{ height: 140 }}
-    //       image="https://cdn.shopify.com/s/files/1/1830/5085/products/VE0007_BCAA_Capsule_90ct_2048x2048.png?v=1494855182"
-    //     />
-    //     <CardContent>
-    //       <Typography gutterBottom variant="h5">
-    //         5ara
-    //       </Typography>
-    //       <Typography variant="body1">
-    //         ba7eb el 5ara fash5 ygma3a
-    //       </Typography>
-    //       <Typography variant="body2" color="text.secondary">
-    //         25$
-    //       </Typography>
-    //     </CardContent>
-    //     <CardActions>
-    //       <Button size="large">Add to Cart</Button>
-    //       <Button size="large">View</Button>
-    //     </CardActions>
-    //   </Card>
-    //   <Card sx={{ maxWidth: 345, maxHeight: 345 }}>
-    //     <CardMedia
-    //       sx={{ height: 140 }}
-    //       image="https://cdn.shopify.com/s/files/1/1830/5085/products/VE0007_BCAA_Capsule_90ct_2048x2048.png?v=1494855182"
-    //     />
-    //     <CardContent>
-    //       <Typography gutterBottom variant="h5">
-    //         5ara
-    //       </Typography>
-    //       <Typography variant="body1">
-    //         ba7eb el 5ara fash5 ygma3a
-    //       </Typography>
-    //       <Typography variant="body2" color="text.secondary">
-    //         25$
-    //       </Typography>
-    //     </CardContent>
-    //     <CardActions>
-    //       <Button size="large">Add to Cart</Button>
-    //       <Button size="large">View</Button>
-    //     </CardActions>
-    //   </Card>
-    // </Box>
     <Box display='flex' flexDirection='row'> 
       {products.length > 0 && products.map((product: any)=> 
       <Card key={product.id} sx={{ maxWidth: 345, maxHeight: 345, marginRight: '40px' }}>
