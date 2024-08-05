@@ -1,39 +1,47 @@
 import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 
 const client = generateClient<Schema>();
 
 function App() {
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
+  const [products, setProducts] = useState<Array<Schema["Product"]["type"]>>([]);
 
   useEffect(() => {
-    client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
+    client.models.Product.observeQuery().subscribe({
+      next: (data) => setProducts([...data.items]),
     });
   }, []);
 
-  function createTodo() {
-    client.models.Todo.create({ content: window.prompt("Todo content") });
-  }
+  // function createTodo() {
+  //   client.models.Todo.create({ content: window.prompt("Todo content") });
+  // }
 
   return (
-    <main>
-      <h1>My todos</h1>
-      <button onClick={createTodo}>+ new</button>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
-        ))}
-      </ul>
-      <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/react/start/quickstart/#make-frontend-updates">
-          Review next step of this tutorial.
-        </a>
-      </div>
-    </main>
+    <Box> 
+      {products.length > 0 && products.map((product: any)=> 
+        <Card key={product.id} sx={{ maxWidth: 345 }}>
+        <CardMedia
+          sx={{ height: 140 }}
+          image="https://cdn.shopify.com/s/files/1/1830/5085/products/VE0007_BCAA_Capsule_90ct_2048x2048.png?v=1494855182"
+          title={product.title}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {product.title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {product.price}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="large">Add to Cart</Button>
+          <Button size="small">View</Button>
+        </CardActions>
+      </Card>
+    )}
+    </Box>
   );
 }
 
