@@ -19,17 +19,64 @@ function App() {
   // }
 
   return (
-    <Box> 
+    // <Box display='flex' flexDirection='row'> 
+    //     <Card sx={{ maxWidth: 345, maxHeight: 345, marginRight: '40px' }}>
+    //     <CardMedia
+    //       sx={{ height: 140 }}
+    //       image="https://cdn.shopify.com/s/files/1/1830/5085/products/VE0007_BCAA_Capsule_90ct_2048x2048.png?v=1494855182"
+    //     />
+    //     <CardContent>
+    //       <Typography gutterBottom variant="h5">
+    //         5ara
+    //       </Typography>
+    //       <Typography variant="body1">
+    //         ba7eb el 5ara fash5 ygma3a
+    //       </Typography>
+    //       <Typography variant="body2" color="text.secondary">
+    //         25$
+    //       </Typography>
+    //     </CardContent>
+    //     <CardActions>
+    //       <Button size="large">Add to Cart</Button>
+    //       <Button size="large">View</Button>
+    //     </CardActions>
+    //   </Card>
+    //   <Card sx={{ maxWidth: 345, maxHeight: 345 }}>
+    //     <CardMedia
+    //       sx={{ height: 140 }}
+    //       image="https://cdn.shopify.com/s/files/1/1830/5085/products/VE0007_BCAA_Capsule_90ct_2048x2048.png?v=1494855182"
+    //     />
+    //     <CardContent>
+    //       <Typography gutterBottom variant="h5">
+    //         5ara
+    //       </Typography>
+    //       <Typography variant="body1">
+    //         ba7eb el 5ara fash5 ygma3a
+    //       </Typography>
+    //       <Typography variant="body2" color="text.secondary">
+    //         25$
+    //       </Typography>
+    //     </CardContent>
+    //     <CardActions>
+    //       <Button size="large">Add to Cart</Button>
+    //       <Button size="large">View</Button>
+    //     </CardActions>
+    //   </Card>
+    // </Box>
+    <Box display='flex' flexDirection='row'> 
       {products.length > 0 && products.map((product: any)=> 
-        <Card key={product.id} sx={{ maxWidth: 345 }}>
+      <Card key={product.id} sx={{ maxWidth: 345, maxHeight: 345, marginRight: '40px' }}>
         <CardMedia
           sx={{ height: 140 }}
           image="https://cdn.shopify.com/s/files/1/1830/5085/products/VE0007_BCAA_Capsule_90ct_2048x2048.png?v=1494855182"
           title={product.title}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h5">
             {product.title}
+          </Typography>
+          <Typography variant="body1">
+            {product.description}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {product.price}
@@ -37,7 +84,7 @@ function App() {
         </CardContent>
         <CardActions>
           <Button size="large">Add to Cart</Button>
-          <Button size="small">View</Button>
+          <Button size="large">View</Button>
         </CardActions>
       </Card>
     )}
