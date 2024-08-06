@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
+import { sayHello } from ".././amplify/functions/say-hello/resource"
 
 const client = generateClient<Schema>();
 
@@ -13,15 +14,7 @@ function App() {
     client.models.Product.observeQuery().subscribe({
       next: (data) => setProducts([...data.items]),
     });
-
-    const lambdaFunction = async() =>{
-      const result = await client.queries.sayHello({name:"salama"});
-      console.log(result)
-      setLambda(result.data!);
-    }
-    lambdaFunction()
   }, []);
-
 
 
   // function createTodo() {
@@ -31,7 +24,7 @@ function App() {
   return (
     <Box display='flex' flexDirection='row'> 
       {products.length > 0 && products.map((product: any)=> 
-      <Card key={product.id} sx={{ maxWidth: 345, maxHeight: 345, marginRight: '40px' }}>
+      <Card key={products.indexOf(product)} sx={{ maxWidth: 345, maxHeight: 345, marginRight: '40px' }}>
         <CardMedia
           sx={{ height: 140 }}
           image="https://cdn.shopify.com/s/files/1/1830/5085/products/VE0007_BCAA_Capsule_90ct_2048x2048.png?v=1494855182"
