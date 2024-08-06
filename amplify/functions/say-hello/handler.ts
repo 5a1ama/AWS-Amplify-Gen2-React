@@ -1,6 +1,6 @@
-import type { Schema } from "../../data/resource"
+import { Handler } from "aws-cdk-lib/aws-lambda"
 
-export const handler: Schema["sayHello"]["functionHandler"] = async (event) => {
+export const handler: Handler = async (event: any) => {
   const { name } = event.arguments
   return `Hello, ${name}!`
 }
