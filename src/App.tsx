@@ -28,7 +28,7 @@ function App() {
   return (
     <Box display='flex' flexDirection='row'> 
       {products.length > 0 && products.map((product: any)=> 
-      <Card key={products.indexOf(product)} sx={{ maxWidth: 345, maxHeight: 345, marginRight: '40px' }}>
+      <Card key={product.id} sx={{ maxWidth: 345, maxHeight: 345, marginRight: '40px' }}>
         <CardMedia
           sx={{ height: 140 }}
           image="https://cdn.shopify.com/s/files/1/1830/5085/products/VE0007_BCAA_Capsule_90ct_2048x2048.png?v=1494855182"
