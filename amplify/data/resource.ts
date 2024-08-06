@@ -32,13 +32,13 @@ const schema = a.schema({
     .authorization((allow) => [allow.publicApiKey()]),
 
       
-  sayHello: a
-    .query()
-    .arguments({
-      name: a.string().default("World"),
-    })
-    .returns(a.string())
-    .handler(a.handler.function(sayHello)),
+  // sayHello: a
+  //   .query()
+  //   .arguments({
+  //     name: a.string().default("World"),
+  //   })
+  //   .returns(a.string())
+  //   .handler(a.handler.function(sayHello)),
 });
 
 export type Schema = ClientSchema<typeof schema>;
