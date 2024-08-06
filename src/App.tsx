@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
-import { sayHello } from ".././amplify/functions/say-hello/resource"
 
 const client = generateClient<Schema>();
 
