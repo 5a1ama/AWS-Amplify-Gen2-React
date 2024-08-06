@@ -7,7 +7,6 @@ const client = generateClient<Schema>();
 
 function App() {
   const [products, setProducts] = useState<Array<Schema["Product"]["type"]>>([]);
-  const [hello, setHello] = useState("");
 
   useEffect(() => {
     client.models.Product.observeQuery().subscribe({
