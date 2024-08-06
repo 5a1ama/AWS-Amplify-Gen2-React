@@ -17,7 +17,7 @@ const Landing = () => {
     }, []);
 
   return (
-    <Box display='flex' flexDirection='row'> 
+    <Box display='flex' flexDirection='row' bgcolor='white'> 
       {products.length > 0 && products.map((product: any)=> 
         <ProductCard product={product}/>
       )}
