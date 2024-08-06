@@ -7,12 +7,19 @@ const client = generateClient<Schema>();
 
 function App() {
   const [products, setProducts] = useState<Array<Schema["Product"]["type"]>>([]);
+  const [hello, setHello] = useState("");
 
   useEffect(() => {
     client.models.Product.observeQuery().subscribe({
       next: (data) => setProducts([...data.items]),
     });
+
   }, []);
+
+  const callSayHello = async () => {
+    const result = await client.queries.sayHello({ name: "Salama" })
+    console.log(result)
+  }
 
 
   // function createTodo() {
@@ -40,7 +47,7 @@ function App() {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="large">Add to Cart</Button>
+          <Button size="large" onClick={callSayHello}>Add to Cart</Button>
           <Button size="large">View</Button>
         </CardActions>
       </Card>
