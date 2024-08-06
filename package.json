@@ -16,7 +16,8 @@
     "@mui/material": "^5.16.6",
     "aws-amplify": "^6.4.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.26.0"
   },
   "devDependencies": {
     "@aws-amplify/backend": "^1.0.4",
