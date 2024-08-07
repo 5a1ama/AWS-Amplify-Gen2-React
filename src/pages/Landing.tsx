@@ -29,8 +29,8 @@ const Landing = () => {
           data: file
       })
         console.log('File uploaded successfully');
-        const url = linkToStorageFile();
-        console.log(url);
+        const linkToStorageFile = await getUrl({path: `admin-media/${file.name}`});
+        console.log(linkToStorageFile.url.toString());
       }
       catch (error) {
         console.error('Error uploading file:', error);
