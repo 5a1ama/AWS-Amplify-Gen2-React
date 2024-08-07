@@ -5,8 +5,10 @@ import { useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import Navbar from '../components/Navbar';
 import { uploadData } from 'aws-amplify/storage';
+import { getUrl } from 'aws-amplify/storage';
 
 const client = generateClient<Schema>();
+
 
 const Landing = () => {
 
@@ -26,11 +28,26 @@ const Landing = () => {
           path: `admin-media/${file.name}`,
           data: file
       })
+        console.log('File uploaded successfully');
+        const url = linkToStorageFile();
+        console.log(url);
       }
       catch (error) {
         console.error('Error uploading file:', error);
       }
     };
+
+    const linkToStorageFile = async () => {
+
+      if (!file) {
+        console.log('No file selected');
+        return;
+      }
+
+      const imageURL = await getUrl({ path: `admin-media/${file.name}`})
+      return imageURL;
+  }
+      
 
     
     const [products, setProducts] = useState<Array<Schema["Product"]["type"]>>([]);
