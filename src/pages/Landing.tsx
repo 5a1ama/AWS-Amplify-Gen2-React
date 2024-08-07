@@ -4,11 +4,35 @@ import { generateClient } from "aws-amplify/data";
 import { useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import Navbar from '../components/Navbar';
+import { uploadData } from 'aws-amplify/storage';
 
 const client = generateClient<Schema>();
 
 const Landing = () => {
 
+    const [file, setFile] = useState<File | null>(null);
+
+    const handleChange = (event: any) => {
+      setFile(event.target.files[0]);
+    };
+
+    const uploadFile = async () => {
+      if (!file) {
+        console.log('No file selected');
+        return;
+      }
+      try {
+        uploadData({
+          path: `admin-media/${file.name}`,
+          data: file
+      })
+      }
+      catch (error) {
+        console.error('Error uploading file:', error);
+      }
+    };
+
+    
     const [products, setProducts] = useState<Array<Schema["Product"]["type"]>>([]);
 
     useEffect(() => {
@@ -25,6 +49,12 @@ const Landing = () => {
           <ProductCard key={product.id} product={product}/>
         )}
       </Box>
+      <div>
+      <input type="file" onChange={handleChange} />
+        <button onClick={uploadFile}>
+          Upload
+        </button>
+      </div>
     </Box>
   )
 }
