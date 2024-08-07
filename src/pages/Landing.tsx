@@ -37,16 +37,16 @@ const Landing = () => {
       }
     };
 
-    const linkToStorageFile = async () => {
+  //   const linkToStorageFile = async () => {
 
-      if (!file) {
-        console.log('No file selected');
-        return;
-      }
+  //     if (!file) {
+  //       console.log('No file selected');
+  //       return;
+  //     }
 
-      const imageURL = await getUrl({ path: `admin-media/${file.name}`})
-      return imageURL.url.toString();
-  }
+  //     const imageURL = await getUrl({ path: `admin-media/${file.name}`})
+  //     return imageURL.url.toString();
+  // }
       
 
     
