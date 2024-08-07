@@ -45,18 +45,18 @@ const Landing = () => {
       }
 
       const imageURL = await getUrl({ path: `admin-media/${file.name}`})
-      return imageURL;
+      return imageURL.url.toString();
   }
       
 
     
     const [products, setProducts] = useState<Array<Schema["Product"]["type"]>>([]);
 
-    useEffect(() => {
-        client.models.Product.observeQuery().subscribe({
-        next: (data) => setProducts([...data.items]),
-        });
-    }, []);
+    // useEffect(() => {
+    //     client.models.Product.observeQuery().subscribe({
+    //     next: (data) => setProducts([...data.items]),
+    //     });
+    // }, []);
 
   return (
     <Box>
