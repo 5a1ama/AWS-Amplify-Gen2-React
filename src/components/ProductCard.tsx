@@ -2,9 +2,9 @@ import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@
 
 const ProductCard = (props: any) => {
   return (
-    <Card key={props.product.id} sx={{ width: 300, maxWidth: 300, height: 450, maxHeight: 450, marginRight: '40px', bgcolor:'gray' }}>
+    <Card key={props.product.id} sx={{ width: '18vw', maxWidth: '18vw', height: '80vh', maxHeight: '80vh' }}>
       <CardMedia
-        sx={{ height: 300 }}
+        sx={{ height: '60vh' }}
         image="https://cdn.shopify.com/s/files/1/1830/5085/products/VE0007_BCAA_Capsule_90ct_2048x2048.png?v=1494855182"
         title={props.product.title}
       />
@@ -21,7 +21,7 @@ const ProductCard = (props: any) => {
       </CardContent>
       <CardActions>
         <Button variant='contained' size="large">Add to Cart</Button>
-        <Button variant='contained' size="large">View</Button>
+        <Button variant='contained' size="large" sx={{ bgcolor:'#E1D9D1' }}>View</Button>
       </CardActions>
     </Card>
   )

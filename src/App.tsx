@@ -1,5 +1,6 @@
 import {Routes,Route} from "react-router-dom";
 import Landig from './pages/Landing';
+//import "./App.css";
 
 function App() {
 
