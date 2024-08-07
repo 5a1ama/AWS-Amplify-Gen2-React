@@ -52,11 +52,11 @@ const Landing = () => {
     
     const [products, setProducts] = useState<Array<Schema["Product"]["type"]>>([]);
 
-    // useEffect(() => {
-    //     client.models.Product.observeQuery().subscribe({
-    //     next: (data) => setProducts([...data.items]),
-    //     });
-    // }, []);
+    useEffect(() => {
+        client.models.Product.observeQuery().subscribe({
+        next: (data) => setProducts([...data.items]),
+        });
+    }, []);
 
   return (
     <Box>
