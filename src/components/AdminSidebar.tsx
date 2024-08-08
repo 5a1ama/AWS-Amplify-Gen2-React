@@ -1,20 +1,23 @@
 import { Box, Typography } from "@mui/material"
-
-
-const navCreateProduct = () => {
-    window.location.href = '/admin/create-product'
-}
-
-const navAllProducts = () => {
-    window.location.href = '/admin/all-products'
-}
-
-const navDeleteProduct = () => {
-    window.location.href = '/admin/all-products'
-}
+import { useNavigate } from "react-router-dom"
 
 
 const AdminSidebar = () => {
+
+    const navigate = useNavigate();
+
+    const navCreateProduct = () => {
+        navigate('/admin/create-product');
+    }
+    
+    const navAllProducts = () => {
+        navigate('/admin/all-products');
+    }
+    
+    const navDeleteProduct = () => {
+        navigate('/admin/all-products')
+    }
+
   return (
 
     <Box width='15%' height='100%' position='absolute' top='0px' left='0px' display='flex' flexDirection='column' pl='2vw' pt='2vh' 

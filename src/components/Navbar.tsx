@@ -1,4 +1,5 @@
 import { AppBar, Box, Button, IconButton, InputBase, Toolbar, styled } from '@mui/material'
+import { useNavigate } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
@@ -46,11 +47,23 @@ const Search = styled('div')(() => ({
     },
   }));
 
-  const navigateAdmin = () => {
-    window.location.href = '/admin';
-  }
 
 function Navbar() {
+
+  const navigate = useNavigate();
+
+  const navigateHome = () => {
+    navigate('/');
+  }
+
+  const navigateShopMen = () => {
+    navigate('/shop-men');
+  }
+
+  const navigateAdmin = () => {
+    navigate('/admin');
+  }
+
 
   return (
     <AppBar position='sticky'>
@@ -71,9 +84,10 @@ function Navbar() {
           </Search>
           <Box
           component="img"
+          onClick={navigateHome}
           src={logo}
           alt="logo"
-          sx={{ width: '150px', height:'100px' }}
+          sx={{ width: '150px', height:'100px',  cursor: 'pointer'}}
           />
           <Box position='absolute' top='55px' right='35px'>
             <IconButton>
@@ -85,7 +99,7 @@ function Navbar() {
           </Box>
         </Box>
         <Box display='flex' flexDirection='row' justifyContent='center' textAlign='center' width= '100%'>
-          <Button sx={{color:'black'}}>Men</Button>
+          <Button onClick={navigateShopMen} sx={{color:'black'}}>Men</Button>
           <Button sx={{color:'black'}}>Women</Button>
           <Button sx={{color:'black'}}>Kids</Button>
         </Box>

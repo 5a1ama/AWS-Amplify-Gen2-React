@@ -27,7 +27,8 @@ const schema = a.schema({
       description: a.string(),
       price: a.float().required(),
       count: a.integer().required(),
-      image: a.string()
+      image: a.string(),
+      category: a.id().required()
     })
     .authorization((allow) => [allow.publicApiKey()]),
 
