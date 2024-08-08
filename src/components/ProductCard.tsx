@@ -1,12 +1,11 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
-import download from '../assets/download.jpg'
 
 const ProductCard = (props: any) => {
   return (
     <Card key={props.product.id} sx={{ width: '18vw', maxWidth: '18vw', height: '80vh', maxHeight: '80vh' }}>
       <CardMedia
         sx={{ height: '60vh' }}
-        image={download}
+        image={props.product.image}
         title={props.product.title}
       />
       <CardContent>
