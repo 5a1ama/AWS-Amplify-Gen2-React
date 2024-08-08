@@ -27,26 +27,6 @@ const AdminCreateProductForm = () => {
     const [price, setPrice] = useState('');
     const [count, setCount] = useState('');   
 
-
-    // const uploadFile = async () => {
-    //   if (!selectedFile) {
-    //     console.log('No file selected');
-    //     return;
-    //   }
-    //   try {
-    //     uploadData({
-    //       path: `admin-media/${selectedFile.name}`,
-    //       data: selectedFile
-    //   })
-    //     console.log('File uploaded successfully');
-    //     const linkToStorageFile = await getUrl({path: `admin-media/${selectedFile.name}`});
-    //     console.log(linkToStorageFile.url.toString());
-    //   }
-    //   catch (error) {
-    //     console.error('Error uploading file:', error);
-    //   }
-    // };
-
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         if (!selectedFile) {
@@ -60,7 +40,7 @@ const AdminCreateProductForm = () => {
             })
             console.log('File uploaded successfully');
             const linkToStorageFile = await getUrl({path: `admin-media/${selectedFile.name}`});
-            client.models.Product.create({ title: title, description: description, price: parseFloat(price), count: parseInt(count), image: linkToStorageFile.url.toString()})
+            client.models.Product.create({ title: title, description: description, price: parseFloat(price), count: parseInt(count), image: linkToStorageFile.url.toString(), category:""})
         } 
         catch (error: any) {
             console.error('Error uploading file:', error);
