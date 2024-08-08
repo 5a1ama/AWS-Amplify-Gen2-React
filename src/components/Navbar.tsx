@@ -46,6 +46,10 @@ const Search = styled('div')(() => ({
     },
   }));
 
+  const navigateAdmin = () => {
+    window.location.href = '/admin';
+  }
+
 function Navbar() {
 
   return (
@@ -54,6 +58,7 @@ function Navbar() {
         <Box display='flex' flexDirection='row' justifyContent='center' textAlign='center' width= '100%'>
           <Button sx={{color:'black', fontSize:'10px'}}>Create Account</Button>
           <Button sx={{color:'black', fontSize:'10px'}}>Sign in</Button>
+          <Button onClick={navigateAdmin}>admin</Button>
         </Box>
         <Box display='flex' flexDirection='row' justifyContent='center' textAlign='center' width= '100%' >
           <Search>
@@ -83,7 +88,6 @@ function Navbar() {
           <Button sx={{color:'black'}}>Men</Button>
           <Button sx={{color:'black'}}>Women</Button>
           <Button sx={{color:'black'}}>Kids</Button>
-          <Button sx={{color:'black'}}>Sports</Button>
         </Box>
       </Toolbar>
     </AppBar>
