@@ -50,7 +50,7 @@ function Navbar() {
 
   return (
     <AppBar position='sticky'>
-      <Toolbar sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor:'white'}}>
+      <Toolbar sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor:'white'}}>
         <Box display='flex' flexDirection='row' justifyContent='center' textAlign='center' width= '100%'>
           <Button sx={{color:'black', fontSize:'10px'}}>Create Account</Button>
           <Button sx={{color:'black', fontSize:'10px'}}>Sign in</Button>

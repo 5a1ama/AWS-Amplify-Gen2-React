@@ -1,11 +1,12 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
+import download from '../assets/download.jpg'
 
 const ProductCard = (props: any) => {
   return (
     <Card key={props.product.id} sx={{ width: '18vw', maxWidth: '18vw', height: '80vh', maxHeight: '80vh' }}>
       <CardMedia
         sx={{ height: '60vh' }}
-        image="https://cdn.shopify.com/s/files/1/1830/5085/products/VE0007_BCAA_Capsule_90ct_2048x2048.png?v=1494855182"
+        image={download}
         title={props.product.title}
       />
       <CardContent>
