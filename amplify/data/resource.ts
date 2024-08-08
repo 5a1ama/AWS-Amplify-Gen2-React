@@ -15,8 +15,6 @@ const schema = a.schema({
       id: a.id().required(),
       title: a.string().required(),
       description: a.string(),
-      image: a.string(),
-      products: a.id().array()
     })
     .authorization((allow) => [allow.publicApiKey()]),
 

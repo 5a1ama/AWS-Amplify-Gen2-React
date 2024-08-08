@@ -25,7 +25,8 @@ const AdminCreateProductForm = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
-    const [count, setCount] = useState('');   
+    const [count, setCount] = useState('');
+    const [categoryId, setCategoryId] = useState('');  
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
@@ -40,7 +41,7 @@ const AdminCreateProductForm = () => {
             })
             console.log('File uploaded successfully');
             const linkToStorageFile = await getUrl({path: `admin-media/${selectedFile.name}`});
-            client.models.Product.create({ title: title, description: description, price: parseFloat(price), count: parseInt(count), image: linkToStorageFile.url.toString(), category:""})
+            client.models.Product.create({ title: title, description: description, price: parseFloat(price), count: parseInt(count), image: linkToStorageFile.url.toString(), category:categoryId })
         } 
         catch (error: any) {
             console.error('Error uploading file:', error);
@@ -108,6 +109,18 @@ const AdminCreateProductForm = () => {
           autoComplete="count"
           value={count}
           onChange={(e) => setCount(e.target.value)}
+          sx={{width:'90%', backgroundColor:'whitesmoke'}}
+        />
+        <TextField
+          variant="outlined"
+          margin="normal"
+          required
+          name="category"
+          label="category"
+          id="category"
+          autoComplete="category"
+          value={categoryId}
+          onChange={(e) => setCategoryId(e.target.value)}
           sx={{width:'90%', backgroundColor:'whitesmoke'}}
         />
 
