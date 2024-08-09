@@ -39,7 +39,7 @@ const Sidebar = (props: any) => {
     fetchCategories();
   }, [props.department]);  
 
-    const handleCategoryClick = (categoryTitle: string, department: string) => {
+    const handleCategoryClick = (department: string, categoryTitle: string) => {
        navigate(`/${department}/${categoryTitle}`);
     }
 

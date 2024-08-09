@@ -10,18 +10,8 @@ const AdminSidebar = () => {
         navigate('/admin/create-category');
     }
 
-    
-    const navAllProducts = () => {
-        navigate('/admin/all-products');
-    }
     const navCreateProduct = () => {
         navigate('/admin/create-product');
-    }
-    const navUpdateProduct = () => {
-        navigate('/admin/update-product')
-    }  
-    const navDeleteProduct = () => {
-        navigate('/admin/delete-product')
     }
 
   return (
@@ -53,16 +43,16 @@ const AdminSidebar = () => {
         </Typography>
 
         <Box pl='0.5vw'>
-            <Typography onClick={navAllProducts} sx={{ cursor: 'pointer', textDecoration: 'underline'}}>
+            <Typography sx={{ cursor: 'pointer', textDecoration: 'underline'}}>
                 All Products
             </Typography>
             <Typography onClick={navCreateProduct} sx={{ cursor: 'pointer', textDecoration: 'underline'}}>
                 Create Product
             </Typography>
-            <Typography onClick={navUpdateProduct} sx={{ cursor: 'pointer', textDecoration: 'underline'}}>
+            <Typography sx={{ cursor: 'pointer', textDecoration: 'underline'}}>
                 Update Product
             </Typography>
-            <Typography onClick={navDeleteProduct} sx={{ cursor: 'pointer', textDecoration: 'underline'}}>
+            <Typography sx={{ cursor: 'pointer', textDecoration: 'underline'}}>
                 Delete Product
             </Typography>
         </Box>
