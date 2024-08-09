@@ -62,21 +62,21 @@ const Shop = () => {
   return (
     <Box>
         <Navbar/>
-        <Box display='flex' flexDirection='row'>
+        <Box >
             {location.pathname === '/men' && 
-            <Box>
+            <Box display='flex' flexDirection='row'>
                 <Sidebar department={"men"}/>
                 <MenLanding/>
             </Box>}
 
             {location.pathname === '/women' && 
-            <Box>
+            <Box display='flex' flexDirection='row'>
                 <Sidebar department={"women"}/>
                 <WomenLanding/>
             </Box>}
 
             {location.pathname === `/men/${categoryTitle}` && 
-            <Box>
+            <Box display='flex' flexDirection='row'>
                 <Sidebar department={"men"}/>
                 <Box display='flex' flexWrap='wrap' flexDirection='row' justifyContent='center' alignItems='center' columnGap='0.5vw' rowGap='1.5vh' maxWidth='100%' marginTop='50px'> 
                     {products.length > 0 && products.map((product: any)=> 
@@ -86,7 +86,7 @@ const Shop = () => {
             </Box>}
 
             {location.pathname === `/women/${categoryTitle}` && 
-            <Box>
+            <Box display='flex' flexDirection='row'>
                 <Sidebar department={"women"}/>
                 <Box display='flex' flexWrap='wrap' flexDirection='row' justifyContent='center' alignItems='center' columnGap='0.5vw' rowGap='1.5vh' maxWidth='100%' marginTop='50px'> 
                     {products.length > 0 && products.map((product: any)=> 
