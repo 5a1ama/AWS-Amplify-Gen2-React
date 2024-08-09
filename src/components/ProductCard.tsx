@@ -16,7 +16,7 @@ const ProductCard = (props: any) => {
           {props.product.description}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {props.product.price}
+          {props.product.price}$
         </Typography>
       </CardContent>
       <CardActions>
