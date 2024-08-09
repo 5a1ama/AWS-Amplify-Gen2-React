@@ -6,20 +6,41 @@ import { useNavigate } from "react-router-dom";
 
 const client = generateClient<Schema>();
 
-const Sidebar = () => {
+const Sidebar = (props: any) => {
 
     const navigate = useNavigate();
 
     const [categories, setCategories] = useState<Array<Schema["Category"]["type"]>>([]);
 
-    useEffect(() => {
-        client.models.Category.observeQuery().subscribe({
-        next: (data) => setCategories([...data.items]),
-        });
-    }, []);
+    const fetchCategories = async () => {
 
-    const handleCategoryClick = (categoryTitle: any) => {
-       navigate(`/shop-men/${categoryTitle}`);
+      try {
+          const fetchedCategories = await client.models.Category.list({
+              filter: {
+                  department: {
+                      eq: props.department
+                  }
+              }
+          });
+
+          if(!fetchedCategories) {
+              console.error('Categories not found');
+              return;
+          }
+
+          setCategories(fetchedCategories.data);
+
+      } catch (error) {
+          console.error('Error fetching categories:', error);
+      }
+  };
+
+  useEffect(() => {
+    fetchCategories();
+  }, [props.department]);  
+
+    const handleCategoryClick = (categoryTitle: string, department: string) => {
+       navigate(`/${department}/${categoryTitle}`);
     }
 
   return (
@@ -32,7 +53,7 @@ const Sidebar = () => {
 
         <Box pl='0.5vw' mb='4vh'>
         {categories.length > 0 && categories.map((category: any)=> 
-          <Typography key={category.id} onClick={() => handleCategoryClick(category.title)}  sx={{ cursor: 'pointer', textDecoration: 'underline'}}> {category.title} </Typography>
+          <Typography key={category.id} onClick={() => handleCategoryClick(props.department, category.title)}  sx={{ cursor: 'pointer', textDecoration: 'underline'}}> {category.title} </Typography>
         )}
         </Box>
     </Box>

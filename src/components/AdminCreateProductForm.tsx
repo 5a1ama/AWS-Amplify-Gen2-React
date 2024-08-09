@@ -30,6 +30,7 @@ const AdminCreateProductForm = () => {
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
+        
         if (!selectedFile) {
             console.log('No file selected');
             return;
@@ -49,11 +50,11 @@ const AdminCreateProductForm = () => {
       };
 
   return (
-    <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column',alignItems: 'center', justifyContent:'center',
+    <Box component="form" onSubmit={handleSubmit} display='flex' flexDirection='column' justifyContent='center' alignItems='center' width='100%'>
+      
+      <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center' width='40vw' sx={{
         backgroundColor:'rgba(0, 0, 0, 0.15)',
         backdropFilter: 'blur(10px)',
-        width: '35%',
-        height:'60%',
         pt:'10px',
         pb:'10px'
        }}>
@@ -174,10 +175,10 @@ const AdminCreateProductForm = () => {
           type="submit"
           variant="contained"
           color="secondary"
-          sx={{ mb: 2 , mt:20,  fontSize:{xs:'22px', sm:'25px'}, width:{xs:'40%', sm:'30%'}}}
-        >
+          sx={{ mb: 2 , mt:10,  fontSize:{xs:'22px', sm:'25px'}, width:{xs:'40%', sm:'30%'}}}>
           Create
         </Button>
+      </Box>
     </Box>
   )
 }

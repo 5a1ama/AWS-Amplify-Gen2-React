@@ -1,8 +1,7 @@
 import {Routes,Route} from "react-router-dom";
 import Landig from './pages/Landing';
-import ShopMen from "./pages/ShopMen";
+import Shop from "./pages/Shop";
 import Admin from "./pages/Admin";
-import AdminCreateProduct from "./pages/AdminCreateProduct";
 //import "./App.css";
 
 function App() {
@@ -10,10 +9,12 @@ function App() {
   return (
     <Routes>
         <Route path='/' element={<Landig/>}></Route>
-        <Route path='/shop-men' element={<ShopMen/>}></Route>
-        <Route path='/shop-men/:categoryTitle' element={<ShopMen/>}></Route>
+        <Route path='/men' element={<Shop/>}></Route>
+        <Route path='/:department/:categoryTitle' element={<Shop/>}></Route>
+        <Route path='/women' element={<Shop/>}></Route>
         <Route path='/admin' element={<Admin/>}></Route>
-        <Route path='/admin/create-product' element={<AdminCreateProduct/>}></Route>
+        <Route path='/admin/create-category' element={<Admin/>}></Route>
+        <Route path='/admin/create-product' element={<Admin/>}></Route>
     </Routes>
   )
 }
