@@ -56,10 +56,13 @@ function Navbar() {
     navigate('/');
   }
   const navigateMen = () => {
-    navigate('/men');
+    navigate('/shop/men');
   }
   const navigateWomen = () => {
-    navigate('/women');
+    navigate('/shop/women');
+  }
+  const navigateKids = () => {
+    navigate('/shop/kids');
   }
 
   const navigateAdmin = () => {
@@ -103,7 +106,7 @@ function Navbar() {
         <Box display='flex' flexDirection='row' justifyContent='center' textAlign='center' width= '100%'>
           <Button onClick={navigateMen} sx={{color:'black'}}>Men</Button>
           <Button onClick={navigateWomen} sx={{color:'black'}}>Women</Button>
-          <Button sx={{color:'black'}}>Kids</Button>
+          <Button onClick={navigateKids} sx={{color:'black'}}>Kids</Button>
         </Box>
       </Toolbar>
     </AppBar>

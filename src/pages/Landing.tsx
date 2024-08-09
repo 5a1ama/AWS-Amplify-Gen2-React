@@ -1,8 +1,5 @@
 import { Box, Typography } from '@mui/material'
-// import type { Schema } from "../../amplify/data/resource";
-// import { generateClient } from "aws-amplify/data";
-// import { useEffect, useState } from 'react';
-//import ProductCard from '../components/ProductCard';
+import { useNavigate } from "react-router-dom";
 import Navbar from '../components/Navbar';
 import men from '../assets/men.jpg'
 import women from '../assets/women.jpg'
@@ -12,6 +9,18 @@ import trendy from '../assets/trendy.jpg'
 
 
 const Landing = () => {
+
+  const navigate = useNavigate();
+
+  const menDepartmentClick = () => {
+    navigate('/shop/men');
+  }
+  const womenDepartmentClick = () => {
+    navigate('/shop/women');
+  }
+  const kidsDepartmentClick = () => {
+    navigate('/shop/kids');
+  }
   
   return (
     <Box>
@@ -84,7 +93,7 @@ const Landing = () => {
         <Box display='flex' flexDirection='row' justifyContent='center' alignItems='center' columnGap='5vw'>
           <Box
           onClick={() => {
-            console.log('Image clicked!');
+            menDepartmentClick();
           }}
           sx={{
             width: '15vw',
@@ -104,7 +113,7 @@ const Landing = () => {
           </Box>
           <Box
           onClick={() => {
-            console.log('Image clicked!');
+            womenDepartmentClick();
           }}
           sx={{
             width: '15vw',
@@ -124,7 +133,7 @@ const Landing = () => {
           </Box>
           <Box
           onClick={() => {
-            console.log('Image clicked!');
+            kidsDepartmentClick();
           }}
           sx={{
             width: '15vw',

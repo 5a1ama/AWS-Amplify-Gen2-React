@@ -9,6 +9,7 @@ import Navbar from "../components/Navbar"
 import ProductCard from "../components/ProductCard";
 import MenLanding from "../components/MenLanding";
 import WomenLanding from "../components/WomenLanding";
+import KidsLanding from "../components/KidsLanding";
 
 const client = generateClient<Schema>();
 
@@ -63,19 +64,25 @@ const Shop = () => {
     <Box>
         <Navbar/>
         <Box >
-            {location.pathname === '/men' && 
+            {location.pathname === '/shop/men' && 
             <Box display='flex' flexDirection='row'>
                 <Sidebar department={"men"}/>
                 <MenLanding/>
             </Box>}
 
-            {location.pathname === '/women' && 
+            {location.pathname === '/shop/women' && 
             <Box display='flex' flexDirection='row'>
                 <Sidebar department={"women"}/>
                 <WomenLanding/>
             </Box>}
 
-            {location.pathname === `/men/${categoryTitle}` && 
+            {location.pathname === '/shop/kids' && 
+            <Box display='flex' flexDirection='row'>
+                <Sidebar department={"kids"}/>
+                <KidsLanding/>
+            </Box>}
+
+            {location.pathname === `/shop/men/${categoryTitle}` && 
             <Box display='flex' flexDirection='row'>
                 <Sidebar department={"men"}/>
                 <Box display='flex' flexWrap='wrap' flexDirection='row' justifyContent='center' alignItems='center' columnGap='0.5vw' rowGap='1.5vh' maxWidth='100%' marginTop='50px'> 
@@ -85,7 +92,7 @@ const Shop = () => {
                 </Box>
             </Box>}
 
-            {location.pathname === `/women/${categoryTitle}` && 
+            {location.pathname === `/shop/women/${categoryTitle}` && 
             <Box display='flex' flexDirection='row'>
                 <Sidebar department={"women"}/>
                 <Box display='flex' flexWrap='wrap' flexDirection='row' justifyContent='center' alignItems='center' columnGap='0.5vw' rowGap='1.5vh' maxWidth='100%' marginTop='50px'> 

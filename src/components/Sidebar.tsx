@@ -40,7 +40,7 @@ const Sidebar = (props: any) => {
   }, [props.department]);  
 
     const handleCategoryClick = (department: string, categoryTitle: string) => {
-       navigate(`/${department}/${categoryTitle}`);
+       navigate(`/shop/${department}/${categoryTitle}`);
     }
 
   return (

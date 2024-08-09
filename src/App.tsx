@@ -9,9 +9,10 @@ function App() {
   return (
     <Routes>
         <Route path='/' element={<Landig/>}></Route>
-        <Route path='/men' element={<Shop/>}></Route>
-        <Route path='/:department/:categoryTitle' element={<Shop/>}></Route>
-        <Route path='/women' element={<Shop/>}></Route>
+        <Route path='/shop/men' element={<Shop/>}></Route>
+        <Route path='/shop/women' element={<Shop/>}></Route>
+        <Route path='/shop/kids' element={<Shop/>}></Route>
+        <Route path='/shop/:department/:categoryTitle' element={<Shop/>}></Route>
         <Route path='/admin' element={<Admin/>}></Route>
         <Route path='/admin/create-category' element={<Admin/>}></Route>
         <Route path='/admin/create-product' element={<Admin/>}></Route>
