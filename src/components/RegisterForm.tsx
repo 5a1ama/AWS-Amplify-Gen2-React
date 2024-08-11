@@ -19,6 +19,7 @@ const RegisterForm = () => {
                 password: password,
                 options: {
                   userAttributes: {
+                    email:email,
                     phone_number: phone,
                     nickname: firstName,
                   },
