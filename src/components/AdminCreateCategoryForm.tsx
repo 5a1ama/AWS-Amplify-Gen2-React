@@ -22,14 +22,13 @@ const AdminCreateCategoryForm = () => {
             client.models.Category.create({ title: title, description: description, department: department })
         } 
         catch (error: any) {
-            console.error('Error uploading file:', error);
+            console.error('Error Creating Category:', error);
         }
       };
 
   return (
-    <Box component="form" onSubmit={handleSubmit} display='flex' flexDirection='column' justifyContent='center' alignItems='center' width='100%'>
-
-      <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center' width='40vw' sx={{
+    <Box display='flex' justifyContent='center' width='100%'>
+      <Box component="form" onSubmit={handleSubmit} display='flex' flexDirection='column' justifyContent='center' alignItems='center' width='40vw' sx={{
         backgroundColor:'rgba(0, 0, 0, 0.15)',
         backdropFilter: 'blur(10px)',
         pt:'10px',

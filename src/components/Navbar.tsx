@@ -1,9 +1,11 @@
-import { AppBar, Box, Button, IconButton, InputBase, Toolbar, styled } from '@mui/material'
+import { AppBar, Box, Button, IconButton, InputBase, Toolbar, Typography, styled } from '@mui/material'
 import { useNavigate } from "react-router-dom";
+import { signOut } from 'aws-amplify/auth';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import logo from '../assets/logo.png'
+
 
 const Search = styled('div')(() => ({
     position: 'absolute',
@@ -52,8 +54,16 @@ function Navbar() {
 
   const navigate = useNavigate();
 
+  async function handleSignOut() {
+    await signOut()
+  }
+
+
   const navigateHome = () => {
     navigate('/');
+  }
+  const naviagteRegister = () => {
+    navigate('/register');
   }
   const navigateMen = () => {
     navigate('/shop/men');
@@ -74,8 +84,10 @@ function Navbar() {
     <AppBar position='sticky'>
       <Toolbar sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor:'white'}}>
         <Box display='flex' flexDirection='row' justifyContent='center' textAlign='center' width= '100%'>
-          <Button sx={{color:'black', fontSize:'10px'}}>Create Account</Button>
+          <Button onClick={naviagteRegister} sx={{color:'black', fontSize:'10px'}}>Create Account</Button>
           <Button sx={{color:'black', fontSize:'10px'}}>Sign in</Button>
+          <Typography sx={{color:'black', fontSize:'10px'}}>Welcome</Typography>
+          <Button onClick={handleSignOut} sx={{color:'black', fontSize:'10px'}}>Sign Out</Button>
           <Button onClick={navigateAdmin}>admin</Button>
         </Box>
         <Box display='flex' flexDirection='row' justifyContent='center' textAlign='center' width= '100%' >

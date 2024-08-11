@@ -2,6 +2,7 @@ import {Routes,Route} from "react-router-dom";
 import Landig from './pages/Landing';
 import Shop from "./pages/Shop";
 import Admin from "./pages/Admin";
+import RegisterLogin from "./pages/RegisterLogin";
 //import "./App.css";
 
 function App() {
@@ -9,6 +10,8 @@ function App() {
   return (
     <Routes>
         <Route path='/' element={<Landig/>}></Route>
+        <Route path='/register' element={<RegisterLogin/>}></Route>
+        <Route path='/login' element={<RegisterLogin/>}></Route>
         <Route path='/shop/men' element={<Shop/>}></Route>
         <Route path='/shop/women' element={<Shop/>}></Route>
         <Route path='/shop/kids' element={<Shop/>}></Route>

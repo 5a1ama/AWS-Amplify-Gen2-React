@@ -5,13 +5,11 @@ import AdminCreateProductForm from "../components/AdminCreateProductForm"
 
 const Admin = () => {
   return (
-    <Box>
       <Box display='flex' flexDirection='row'>
         <AdminSidebar/>
-          {location.pathname === '/admin/create-category' && <AdminCreateCategoryForm/>}
-          {location.pathname === '/admin/create-product' && <AdminCreateProductForm/>}
+        {location.pathname === '/admin/create-category' && <AdminCreateCategoryForm/>}
+        {location.pathname === '/admin/create-product' && <AdminCreateProductForm/>}
       </Box>
-    </Box>
   )
 }
 
